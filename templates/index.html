@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial NLP Calculator</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        .container { max-width: 600px; margin: auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; text-align: center; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"] { width: calc(100% - 22px); padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        .result, .details { margin-top: 20px; padding: 15px; border: 1px solid #eee; border-radius: 4px; background-color: #e9f7ef; }
+        .result h3, .details h3 { margin-top: 0; color: #196f3d; }
+        .details { background-color: #f0f0f0; font-family: monospace; white-space: pre-wrap; font-size: 0.9em; }
+        .error { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Financial NLP Calculator</h1>
+        <form action="/calculate" method="post">
+            <label for="query">Ask a financial question:</label>
+            <input type="text" id="query" name="query" value="{{ query }}" placeholder="e.g., What is the future value of $1000 at 5% for 10 years?">
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if result_text %}
+            <div class="result {% if 'Error:' in result_text or 'Warning:' in result_text %}error{% endif %}">
+                <h3>Result:</h3>
+                <p>{{ result_text }}</p>
+            </div>
+        {% endif %}
+
+        {% if calculation_details %}
+            <div class="details">
+                <h3>Calculation Process:</h3>
+                <p>{{ calculation_details }}</p> </div>
+        {% endif %}
+    </div>
+</body>
+</html>
