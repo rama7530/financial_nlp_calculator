@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.so
+.Python
+venv/
+env/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.hypothesis/
+.pytest_cache/
+instance/ # Flask instance folder
+
+# Hugging Face cache (if models are downloaded within project, though usually global or user-level)
+# These are usually stored outside the project, but good to be aware.
+# If you have a local .cache folder in your project for models, add it:
+# .cache/
+# transformers_cache/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*~
+
+# macOS specific
+.DS_Store
