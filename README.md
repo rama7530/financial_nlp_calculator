@@ -12,7 +12,6 @@ A Flask web application that uses Hugging Face Transformers to understand natura
     * Simple Interest
     * Compound Interest
     * Monthly Loan Payments
-    * (List any other calculations your current version supports)
 
 ## Project Structure
 
